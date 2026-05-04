@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8b9c3; /* اللون الوردي الهادئ */
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+.container { text-align: center; }
+h1 { color: #c2185b; font-size: 2.5rem; }

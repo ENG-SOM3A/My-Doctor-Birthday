@@ -1,12 +1,124 @@
+/* تنسيقات عامة */
 body {
     margin: 0;
-    height: 100vh;
+    padding: 0;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8b9c3; /* اللون الوردي الهادئ */
-    font-family: Arial, sans-serif;
-    overflow: hidden;
+    /* خلفية متدرجة ناعمة باللون الوردي */
+    background: linear-gradient(135deg, #f8b9c3 0%, #f1a7b5 100%);
+    font-family: 'Cairo', sans-serif;
+    overflow-x: hidden;
+    text-align: center;
 }
-.container { text-align: center; }
-h1 { color: #c2185b; font-size: 2.5rem; }
+
+.main-wrapper {
+    width: 90%;
+    max-width: 800px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px); /* تأثير زجاجي ضبابي */
+}
+
+/* تنسيق الكعكة */
+.cake-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.cake {
+    width: 100px;
+    height: 80px;
+    background: #e91e63;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.candle {
+    width: 10px;
+    height: 30px;
+    background: #ffeb3b;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+.candle::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #ff5722;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    border-radius: 50% 50% 20% 20%;
+    animation: flame 0.5s infinite alternate;
+}
+
+/* تنسيق النص */
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #c2185b;
+    font-size: 3rem;
+    margin: 20px 0;
+    min-height: 1.2em;
+}
+
+/* تنسيق زر الاحتفال */
+.celebrate-btn {
+    background-color: #c2185b;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(194, 24, 91, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+.celebrate-btn:hover {
+    background-color: #a0134b;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(194, 24, 91, 0.4);
+}
+
+/* تنسيق قسم الصور */
+.photo-album {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.birthday-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 8px solid white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+.birthday-img:hover {
+    transform: scale(1.1) rotate(2deg);
+}
+
+@keyframes flame {
+    from { opacity: 0.8; transform: translateX(-50%) scale(1); }
+    to { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+/* للتجاوب مع الموبايل */
+@media (max-width: 600px) {
+    h1 { font-size: 2rem; }
+    .container { padding: 20px; }
+}
